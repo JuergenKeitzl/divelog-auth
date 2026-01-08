@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>Dropbox Login</title>
-</head>
+<html>
 <body>
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-
-    if (!code) {
-        document.body.innerText = "Kein OAuth-Code erhalten.";
-    } else {
-        // 👉 Weiterleitung in die MAUI App
-        window.location.href = `divelog://auth/dropbox?code=${code}`;
-    }
-</script>
-
-<p>Dropbox-Anmeldung abgeschlossen. Sie können dieses Fenster schließen.</p>
+<p>DiveLog OAuth Redirect Host</p>
 </body>
 </html>
