@@ -1,22 +1,21 @@
 <!DOCTYPE html>
-<html lang="de">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Dropbox Login</title>
+    <meta charset="utf-8">
+    <title>DiveLog – Dropbox Login</title>
 </head>
 <body>
+<p>Login abgeschlossen. App wird geöffnet …</p>
+
 <script>
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
 
-    if (!code) {
-        document.body.innerText = "Kein OAuth-Code erhalten.";
+    if (code) {
+        window.location.href = "divelog://auth/dropbox?code=" + code;
     } else {
-        // 👉 Weiterleitung in die MAUI App
-        window.location.href = `divelog://auth/dropbox?code=${code}`;
+        document.body.innerText = "Kein OAuth-Code erhalten.";
     }
 </script>
-
-<p>Dropbox-Anmeldung abgeschlossen. Sie können dieses Fenster schließen.</p>
 </body>
 </html>
