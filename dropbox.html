@@ -5,17 +5,25 @@
     <title>DiveLog – Dropbox Login</title>
 </head>
 <body>
-<p>Login abgeschlossen. App wird geöffnet …</p>
+<p>Login abgeschlossen!</p>
 
-<script>
+ <p>Bitte bestätigen, um zur App zurückzukehren.</p>
+
+  <button id="openApp">App öffnen</button>
+
+  <script>
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
 
-    if (code) {
-        window.location.href = "divelog://auth/dropbox?code=" + code;
-    } else {
-        document.body.innerText = "Kein OAuth-Code erhalten.";
-    }
-</script>
+    document.getElementById("openApp").onclick = () => {
+      if (!code) {
+        alert("Kein OAuth-Code gefunden");
+        return;
+      }
+
+      window.location.href =
+        "divelog://auth/dropbox?code=" + encodeURIComponent(code);
+    };
+  </script>
 </body>
 </html>
